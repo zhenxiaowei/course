@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .siblings *
+        {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+    <script src="../js/jquery-1.11.3.js">
+    </script>
+    <script>
+        /*
+        * nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+         下面的例子返回介于 <h2> 与 <h6> 元素之间的所有同胞元素：
+        * */
+        $(document).ready(function(){
+            $("h2").nextUntil("h6").css({"color":"red","border":"2px solid red"});
+        });
+    </script>
+</head>
+<body class="siblings">
+
+<div>div (父元素)
+    <p>p</p>
+    <span>span</span>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+    <p>p</p>
+</div>
+
+</body>
+</html>

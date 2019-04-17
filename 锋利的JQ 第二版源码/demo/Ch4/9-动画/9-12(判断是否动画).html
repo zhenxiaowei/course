@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Panel</title>
+<style type="text/css">
+*{margin:0;padding:0;}	
+body { padding: 60px }
+.panel {position: relative; width: 100px; height:100px;border: 1px solid #0050D0;background: #96E555; cursor: pointer}
+</style>
+<script src="../../scripts/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function(){
+		//给id为mover的元素添加动画.
+		function animateIt() {
+			$("#mover").slideToggle("slow", animateIt);
+		}
+		//slideToggle() 方法通过使用滑动效果（高度变化）来切换元素的可见状态。
+		//如果被选元素是可见的，则隐藏这些元素，如果被选元素是隐藏的，则显示这些元素。
+		function animateIt2() {
+			$("#mover").fadeToggle("slow", animateIt2);
+		}
+		//fadeToggle()函数用于切换所有匹配的元素，并带有淡入/淡出的过渡动画效果。
+       //所谓"切换"，即如果元素当前是可见的，则将其隐藏(淡出)；如果元素当前是隐藏的，则使其显示(淡入)。
+		animateIt();
+
+
+		$("button").click(function(){
+			if(!$('#mover').is(":animated")){		//判断元素是否正处于动画状态  :animated 选择器选取当前的所有动画元素。
+				 //如果当前没有进行动画，则添加新动画 
+				$('#mover').fadeToggle("slow", animateIt2);
+			}else{
+				$('#mover').stop();//stop() 方法停止当前正在运行的动画。
+			}
+		});
+
+    });
+</script>
+</head>
+<body>
+<button >click</button>
+<div class="panel" id="mover">动画元素</div>
+</body>
+</html>

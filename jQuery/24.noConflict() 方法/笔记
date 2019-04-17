@@ -1,0 +1,7 @@
+
+jQuery 和其他 JavaScript 框架
+正如您已经了解到的，jQuery 使用 $ 符号作为 jQuery 的简写。
+如果其他 JavaScript 框架也使用 $ 符号作为简写怎么办？
+其他一些 JavaScript 框架包括：MooTools、Backbone、Sammy、Cappuccino、Knockout、JavaScript MVC、Google Web Toolkit、Google Closure、Ember、Batman 以及 Ext JS。
+其中某些框架也使用 $ 符号作为简写（就像 jQuery），如果您在用的两种不同的框架正在使用相同的简写符号，有可能导致脚本停止运行。
+jQuery 的团队考虑到了这个问题，并实现了 noConflict() 方法。
