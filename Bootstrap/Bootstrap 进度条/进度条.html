@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>进度条</title>
+    <style type="text/css">
+        .container{
+            width:450px;
+            border:1px solid #6C9C2C;
+            height:25px;
+        }
+        #bar{
+            background:#95CA0D;
+            float:left;
+            height:100%;
+            text-align:center;
+            line-height:150%;
+        }
+    </style>
+    <script type="text/javascript">
+        function run(){
+            var bar = document.getElementById("bar");
+            var total = document.getElementById("total");
+            bar.style.width=parseInt(bar.style.width,10) + 1 + "%";//parseInt() 函数可解析一个字符串，并返回一个整数。有两个参数，第一个参数是必须的，要被解析的字符串，第二个参数是可选的，表示要解析的数字的基数，该值是2-36之间。如果省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。
+            total.innerHTML = bar.style.width;//innerHTML 属性设置或返回表格行的开始和结束标签之间的 HTML。
+            if(bar.style.width == "100%"){
+                window.clearTimeout(timeout);//清除定时器
+                return;
+            }
+            var timeout=window.setTimeout("run()",100);//设置定时器  执行方法   设置间隔的时间
+        }
+        window.onload = function(){//onload事件会在页面或图像加载完成后立即执行
+            run();
+        }
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div id="bar" style="width:0%;"></div>
+</div>
+<span id="total"></span>
+</body>
+</html>

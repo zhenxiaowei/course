@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 响应式表格</title>
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <script src="../js/jquery-1.11.1.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+<body>
+<!--
+响应式表格
+将任何 .table 元素包裹在 .table-responsive 元素内，即可创建响应式表格，其会在小屏幕设备上（小于768px）水平滚动。当屏幕大于 768px 宽度时，水平滚动条消失。
+-->
+
+<!--垂直方向的内容截断
+响应式表格使用了 overflow-y: hidden 属性，这样就能将超出表格底部和顶部的内容截断。特别是，也可以截断下拉菜单和其他第三方组件。-->
+<div class="table-responsive">
+    <table class="table">
+        <caption>响应式表格布局</caption>
+        <thead>
+        <tr>
+            <th>产品</th>
+            <th>付款日期</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>产品1</td>
+            <td>23/11/2013</td>
+            <td>待发货</td>
+        </tr>
+        <tr>
+            <td>产品2</td>
+            <td>10/11/2013</td>
+            <td>发货中</td>
+        </tr>
+        <tr>
+            <td>产品3</td>
+            <td>20/10/2013</td>
+            <td>待确认</td>
+        </tr>
+        <tr>
+            <td>产品4</td>
+            <td>20/10/2013</td>
+            <td>已退货</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
