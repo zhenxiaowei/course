@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="../js/jquery-1.11.3.js">
+    </script>
+    <script>
+        /*
+        * 许多 jQuery 函数涉及动画。这些函数也许会将 speed 或 duration 作为可选参数。
+         例子：$("p").hide("slow")
+         speed 或 duration 参数可以设置许多不同的值，比如 "slow", "fast", "normal" 或毫秒。
+         以下实例没有回调函数，警告框会在隐藏效果完成前弹出：
+        * */
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("p").hide(1000);
+                alert("现在段落被隐藏了");
+            });
+        });
+    </script>
+</head>
+<body>
+<button>隐藏</button>
+<p>这是一个段落，内容很少</p>
+</body>
+</html>

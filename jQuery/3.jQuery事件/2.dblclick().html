@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <script src="../js/jquery-1.11.3.js">
+    </script>
+    <script>
+        /*
+        * dblclick()
+         当双击元素时，会发生 dblclick 事件。
+         dblclick() 方法触发 dblclick 事件，或规定当发生 dblclick 事件时运行的函数：
+        * */
+        $(document).ready(function(){
+            $("p").dblclick(function(){
+                $(this).hide();
+            });
+        });
+    </script>
+</head>
+<body>
+
+<p>双击鼠标左键的，我就消失。</p>
+<p>双击我消失！</p>
+<p>双击我也消失！</p>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="js/jquery-1.11.3.js"></script>
+</head>
+<body>
+<h3 style="text-align: center;">jQuery 属性操作方法<br/>
+    下面列出的这些方法获得或设置元素的 DOM 属性。<br/>
+    这些方法对于 XML 文档和 HTML 文档均是适用的，除了：html()。</h3>
+<table class="table-bordered table">
+    <tbody><tr>
+        <th>方法</th>
+        <th>描述</th>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/attributes_addclass.asp" title="jQuery HTML - addClass() 方法">addClass()</a></td>
+        <td>向匹配的元素添加指定的类名。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/attributes_attr.asp" title="jQuery HTML - attr() 方法">attr()</a></td>
+        <td>设置或返回匹配元素的属性和值。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/attributes_hasclass.asp" title="jQuery HTML - hasClass() 方法">hasClass()</a></td>
+        <td>检查匹配的元素是否拥有指定的类。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/manipulation_html.asp" title="jQuery HTML - html() 方法">html()</a></td>
+        <td>设置或返回匹配的元素集合中的 HTML 内容。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/attributes_removeattr.asp" title="jQuery HTML - removeAttr() 方法">removeAttr()</a></td>
+        <td>从所有匹配的元素中移除指定的属性。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/attributes_removeclass.asp" title="jQuery HTML - removeClass() 方法">removeClass()</a></td>
+        <td>从所有匹配的元素中删除全部或者指定的类。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/attributes_toggleclass.asp" title="jQuery HTML - toggleClass() 方法">toggleClass()</a></td>
+        <td>从匹配的元素中添加或删除一个类。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/attributes_val.asp" title="jQuery HTML - val() 方法">val()</a></td>
+        <td>设置或返回匹配元素的值。</td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
+<script>
+    $(".table tr:even").css("background","#d4d4d4");
+    $(".table tr:odd").css("background","#fff");
+    $(".table tr").eq(0).css({background:"#555",color:"#fff"});
+
+</script>

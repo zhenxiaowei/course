@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <script src="../js/jquery-1.11.3.js">
+    </script>
+    <script>
+        /*
+        * mouseleave()
+         当鼠标指针离开元素时，会发生 mouseleave 事件。
+         mouseleave() 方法触发 mouseleave 事件，或规定当发生 mouseleave 事件时运行的函数：
+        * */
+        $(document).ready(function(){
+            $("#p1").mouseleave(function(){
+                alert("再见，您的鼠标离开了该段落。");
+            });
+        });
+    </script>
+</head>
+<body>
+
+<p id="p1">这是一个段落。</p>
+
+</body>
+</html>

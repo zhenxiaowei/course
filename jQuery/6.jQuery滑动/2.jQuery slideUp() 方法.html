@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="../js/jquery-1.11.3.js">
+    </script>
+    <script>
+        /*
+        * jQuery slideUp() 方法用于向上滑动元素。
+         语法:
+         $(selector).slideUp(speed,callback);
+         可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+         可选的 callback 参数是滑动完成后所执行的函数名称。
+         下面的例子演示了 slideUp() 方法：
+        * */
+        $(document).ready(function(){
+            $("#flip").click(function(){
+                $("#panel").slideUp("slow");
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        #panel,#flip
+        {
+            padding:5px;
+            text-align:center;
+            background-color:#e5eecc;
+            border:solid 1px #c3c3c3;
+        }
+        #panel
+        {
+            padding:50px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="flip">点我拉起面板</div>
+<div id="panel">Hello world!</div>
+
+</body>
+</html>
