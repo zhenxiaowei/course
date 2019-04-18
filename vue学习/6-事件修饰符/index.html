@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+    <style>
+        #cancas{
+            width: 500px;
+            height: 500px;
+            border: 1px solid;
+            text-align: center;
+            line-height: 500px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button v-on:click.once="add(1)">长一岁</button>
+    <button @click="subtract(1)">减一岁</button>
+    <button @dblclick="add(10)">长十岁</button>
+    <button v-on:dblclick="subtract(10)">减十岁</button>
+    <p>{{age}}</p>
+    <div id="cancas" v-on:mousemove="updateXY">
+        {{x}} {{y}}
+        <span v-on:mousemove.stop="">Stop</span>
+    </div>
+    <a href="www.baodu.com" v-on:click.prevent="alert()">阻止跳转</a>
+</div>
+</body>
+</html>
+<script src="app.js"></script>

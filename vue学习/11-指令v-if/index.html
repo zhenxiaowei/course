@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>实例1</h1>
+    <button v-on:click="error=!error">toggle Error</button>
+    <button v-on:click="success=!success">toggle Success</button>
+    <!--<p v-if="error">错误404</p>-->
+    <!--<p v-else-if="success">成功200</p>-->
+    <p v-show="error">错误404</p>
+    <p v-show="success">成功200</p>
+</div>
+</body>
+</html>
+<script src="app.js"></script>
