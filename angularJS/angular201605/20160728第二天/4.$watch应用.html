@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <div>{{obj.name}}</div>
+    <div>{{obj.price}}</div>
+    <div>{{obj.post}}</div>
+    <input type="text" ng-model="obj.count">
+    <div>{{'总价格:'+(total()+obj.post)}}</div>
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.obj = {
+            name: '书',
+            price: 8,//价格
+            post: 10,//邮费
+            count: 1//计数
+        };
+        $scope.total = function () {
+            return $scope.obj.price * $scope.obj.count
+        };
+//        $scope.$watch($scope.total, function (newVal) {
+//            $scope.obj.post = newVal >= 100 ? 0 : 10;
+//        })
+        $scope.$watch('obj.price * obj.count', function (newVal) {
+//        监听的是谁，传进去的就是谁的最新的值，和上一次的值；
+            $scope.obj.post = newVal >= 100 ? 0 : 10;
+        })
+    });
+    //    应用需求：
+    //    在页面中显示一个物品，有单价10，有邮费10，可以输入数量，当我们的总价达到100元，包邮，页面中显示出总价；
+    //    写完了发群里面
+    //    步骤
+    //    1.定义一个total的方法 ，返回值为单价乘以数量
+    //    2.监听total返回值的变化，当达到100元的时候，让post的值为0；
+
+
+</script>
+</body>
+</html>

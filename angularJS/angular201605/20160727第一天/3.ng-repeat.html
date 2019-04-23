@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>angular</title>
+</head>
+<body>
+<div>
+  <div ng-init="phones=['小米','苹果','华为']"></div>
+  <div ng-repeat="phone in phones">
+    {{phone}}
+    {{$index}}
+    {{$first}}
+    {{$last}}
+    {{$odd}}
+    {{$even}}
+  </div>
+</div>
+<script src="angular.js"></script>
+<script>
+  // ng-repeat
+  //  1)遍历他所存在的那个DOM元素，想要遍历哪一个就加在哪一个上面；
+  //  2)每遍历生成的DOM元素都会形成一个私有作用域
+
+  // {{$index}} 当前项的索引
+  // {{$first}} boolean 值，是否为第一项
+  // {{$last}}  boolean 值，是否为最后一项
+  // {{$odd}}   boolean 值，是否索引为奇数
+  // {{$even}}  boolean 值，是否所索引为偶数
+
+
+  //  与原生js的区别
+  //  1)不用获取DOM元素
+  //  2)不用拼接字符串
+  //  3)不用for循环
+</script>
+</body>
+</html>

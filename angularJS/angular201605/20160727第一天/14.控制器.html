@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myMod">
+<head>
+  <meta charset="UTF-8">
+  <title>angular</title>
+
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+  <!--可以拿到父级作用域的数据-->
+  {{age}}
+</div>
+
+<script src="angular.js"></script>
+<script>
+  // angular.module()
+  // 1) 创建一个模板
+  // 参数
+  // 第一个参数  模板的名字（字符串）
+  // 第二个参数  需要依赖的模板的注入,以数组的形式传入，没有需要，就放一个空[]，必须要有!
+  // 第二个参数不写是获取模板
+  // 返回值是一个module对象
+  var app = angular.module('myMod',[]);
+
+  // 2)module 对象上有一个controller 方法
+  // 参数
+  // 第一个 控制器的名字
+  // 第二个 是函数（自动注入一个$scope对象）
+  // controller 会创建一个新的作用域scope
+  app.controller("myCtrl",function($scope){
+//      $scope
+//      1 声明变量和函数，存储在$scope上的一个属性
+//      2 这里声明的变量和函数，外界不受外界干扰，一般外界获取不到；
+    $scope.age=8;
+    $scope.handle=function(){
+      $scope.age++;
+    }
+
+  })
+
+
+</script>
+</body>
+</html>

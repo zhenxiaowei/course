@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<girl clever></girl>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.directive('girl', function () {
+        return {
+            controller: function ($scope, $element, $attrs) {
+//             $scope, $element, $attrs 参数的名字不可以改变
+                $scope.kinds = [];
+                this.add = function (cur) {
+                    $scope.kinds.push(cur)
+                }
+            },
+            template: '<h1>荣娟</h1>{{kinds}}',
+            link: function (scope, element, attrs) {
+//              element是jQuery对象
+                element.bind('click', function () {
+                    alert(scope.kinds)
+                })
+            }
+        }
+    });
+
+    app.directive('clever', function () {
+        return {
+            require: 'girl',
+//          require:'girl' 将girl 模板进入进来
+            link: function (scope, element, attrs, girlCont) {
+//          第四个参数 girlCont 就是需要进入引来的自定义指令的可复用的部分的一个实例
+                girlCont.add('clever')
+
+            }
+        }
+    });
+    // 自定义两个指令
+    //    1.girl   定义一个数组 kinds ，点击模板的时候弹出数组
+    //    2.clever  给数组 kinds 增加一项 ‘clever’
+
+    //    controller ：定义可复用的公用部分，可以引入到其他自定义指令中，实现自定义指令之间的交互
+    //    link：属于私有部分，不能被其他的指令获取到
+
+
+    //    先理解 controller怎么使用？
+    //    1）controller 可以定义复用方法的一个属性
+    //    2）如果想在其他指令里面引用，首先用require把需要引用controller所在的指令引入进来，然后在link里面添加第四个参数（就是controller的一个实例）
+</script>
+</body>
+</html>

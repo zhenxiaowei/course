@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div ng-controller="myCtrl1">
+    {{age}}
+    <!--此时age获取不到值-->
+    <div ng-controller="myCtrl2">
+        <input type="text" ng-model="price">
+    </div>
+</div>
+
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.run(function ($rootScope) {
+        $rootScope.$on('age', function (event,data ) {
+            console.log(event);
+            console.log(event.currentScope);
+//            console.log(event,data);
+            $rootScope.age = data;
+        });
+    });
+    app.controller('myCtrl1',function ($scope) {
+        $scope.name = 'zfpx';
+        $scope.price = 100;
+
+//        将 $scope.price 和$scope.count的乘积 广播给他的儿子 myCtrl2
+//        用 $broadcast 广播
+        $scope.$on('age', function (event,data ) {
+//            console.log(event.currentScope);
+//            console.log(event.defaultPrevented);
+//            console.log(event.name);
+//            console.log(event.preventDefault);
+//            console.log(event.stopPropagation);
+//            console.log(event.targetScope);
+//            console.log(event,data);
+            $scope.age = data;
+        });
+        $scope.$watch('price',function () {
+            $scope.$broadcast('name',$scope.name );
+        });
+
+    });
+    app.controller('myCtrl2',function ($scope) {
+        $scope.age = 8;
+        $scope.$emit('age', $scope.age);
+//      用$on进行监听赋值给 $scope.name
+        $scope.$on('name', function (event,data ) {
+//            console.log(event.currentScope);
+//            console.log(event.defaultPrevented);
+//            console.log(event.name);
+//            console.log(event.preventDefault);
+//            console.log(event.stopPropagation);
+//            console.log(event.targetScope);
+//            回调函数，外界获取不到data
+//            console.log(event);//输出结果
+//            currentScope  当前操作的作用域
+//            defaultPrevented  ：是一个方法，调用该方法执行的结果是让preventDefault 为true
+//            name:"age"  ：数据
+//            preventDefault ：false
+//            stopPropagation ：false
+//            targetScope  ：数据从哪里来的
+
+            $scope.age = data;
+        });
+    });
+//    $scope 可调用的 $on  $emit  $broadcast 三个方法
+//    $on :监听事件（监听由$emit发射 或者$broadcast广播的事件 ）
+//    第一个参数要监听的事件的名字，
+//    第二个参数是一个回调函数，function(event,data，..){}
+//    event 是事件对象，后面跟的参数是监听回来的数据，$emit 或者 $broadcast传递过来多少，就可以监听到多少个数据
+//    $emit: 发射事件 (从 子集作用域向父集作用域发射事件)
+//    第一参数是事件的名字（自己起），第二参数是要传递的数据...即后面的参数都是要传递的数据
+//    $broadcast :广播事件 （从父集作用域向子集作用域广播事件）
+//    第一参数是事件的名字（自己起），第二参数是要传递的数据...即后面的参数都是要传递的数据
+// $broadcast 事件，必须有一个触发事件，当事件被触发的时候，广播才可以执行的；
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。
+使用格式：
+<script>
+    // 简单的 GET 请求，可以改为 POST
+    $http({
+        method: 'GET',
+        url: '/server.json'
+    }).then(function successCallback(response) {
+        // 请求成功执行代码
+    }, function errorCallback(response) {
+        // 请求失败执行代码
+    });
+
+    //简写方法
+    //POST 与 GET 简写方法格式：
+    $http.get('/someUrl', config).then(successCallback, errorCallback);
+    $http.post('/someUrl', data, config).then(successCallback, errorCallback);
+
+    /*AngularJS $http 是一个用于读取web服务器上数据的服务。
+    $http.get(url) 是用于读取服务器数据的函数。
+    废弃声明 (v1.5)
+    v1.5 中$http 的 success 和 error 方法已废弃。使用 then 方法替代。*/
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<template>
+<div>
+  <h3>创建条目</h3>
+  <p>
+    可以创建并选中选项中不存在的条目
+  </p>
+  <p>使用allow-create属性即可通过在输入框中输入文字来创建新的条目。注意此时filterable必须为真。本例还使用了default-first-option属性，在该属性打开的情况下，按下回车就可以选中当前选项列表中的第一个选项，无需使用鼠标或键盘方向键进行定位。</p>
+  <p>如果 Select 的绑定值为对象类型，请务必指定 value-key 作为它的唯一性标识。</p>
+  <el-select
+    v-model="value"
+    multiple
+    filterable
+    allow-create
+    default-first-option
+    placeholder="请选择文章标签">
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-select>
+</div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        options: [{
+          value: 'HTML',
+          label: 'HTML'
+        }, {
+          value: 'CSS',
+          label: 'CSS'
+        }, {
+          value: 'JavaScript',
+          label: 'JavaScript'
+        }],
+        value: []
+      }
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp2">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        div{
+            position: absolute;
+            top:0;
+            left: 0;
+            width:100px;
+            height: 100px;
+            background:green;
+        }
+    </style>
+</head>
+<body>
+
+<div zfpx-dr ></div>
+<div zfpx-dr ></div>
+<div zfpx-dr ></div>
+
+<script src="angular.js"></script>
+<script>
+    var app2 = angular.module('myApp2', []);
+    app2.directive('zfpxDr',function () {
+        return{
+            /**
+             *
+             * @param scope  作用域，和DOM相连接的作用域
+             * @param element DOM元素 ，jQuery对象，可以调用jQuery方法，jqlite（只是封装了部分的jq方法）
+             * @param attrs  DOM元素上的属性
+             */
+            link:function (scope, element, attrs) {
+//          实现链接阶段的功能
+                element.on('mousedown',function (e) {
+                    e.preventDefault();
+                    var disX=e.pageX-element[0].offsetLeft;
+//                  element[0] 转为原声的JS 对象
+                    var disY=e.pageY-element[0].offsetTop;
+                    angular.element(document).on('mousemove',function (e) {
+                        var curX= e.pageX-disX;
+                        var curY= e.pageY-disY;
+                        element.css({
+                            left:curX+'px',
+                            top:curY+'px'
+                        })
+                    });
+                    angular.element(document).on('mouseup',function (e) {
+                        angular.element(document).off()
+                    })
+                })
+            }
+        }
+    });
+
+//    自定义指令 directive
+//    angular.module('myApp2', []) 的返回值 调用directive，实现自定义指令
+
+// 实现拖拽功能
+//    angular.element : 转为jQuery对象
+
+</script>
+</body>
+</html>

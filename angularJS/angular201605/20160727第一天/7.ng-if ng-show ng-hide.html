@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>angular</title>
+  <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div ng-if="true">培训1</div>
+<div ng-show="true">培训2</div>
+<div ng-hide="false">培训3</div>
+<div ng-init="phones=[]"></div>
+<div ng-show="phones.length" ng-repeat="phone in phones">
+  {{phone}}
+</div>
+<div ng-hide="phones.length">
+  没有数据了！！
+</div>
+
+
+<script src="angular.js"></script>
+<script>
+//ng-if
+//  跟的是boolean类型的值 true DOM元素存在 false DOM元素不存在
+//ng-show
+//  跟的是boolean类型的值 true DOM元素显示 false DOM元素不显示
+//  用CSS样式控制的
+//  ng-hide 跟ng-show相反的
+//  跟的是boolean类型的值 false DOM元素显示 true DOM元素不显示
+</script>
+</body>
+</html>

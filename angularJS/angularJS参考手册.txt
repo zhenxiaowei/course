@@ -1,0 +1,55 @@
+1.ng-app      定义应用程序的根元素
+2.ng-bind     绑定HTML元素到应用程序数据
+3.ng-bind-html绑定HTML元素的innerHTML到应用程序数据，并移除HTML字符串中危险字符
+4.ng-bind-template 规定要使用模板替换的文本内容
+5.ng-blur 规定blur事件的行为
+6.ng-change 规定在内容改变时要执行的表达式
+7.ng-checked 规定元素是否被选中
+8.ng-class 指定HTML元素使用的CSS类
+9.ng-class-even 类似ng-class，但只在偶数行起作用
+10.ng-class-odd 类似ng-class，但只在奇数行起作用
+11.ng-click 定义元素被点击的行为
+12.ng-cloak 在应用正要加载时防止起闪烁
+13.ng-controller 定义应用的控制器对象
+14.ng-copy 规定拷贝事件的行为
+15.ng-csp 修改内容的安全策略
+16.ng-cut 规定剪切事件的行为
+17.ng-dbclick 规定双击事件的行为
+18.ng-disabled 规定一个元素是否被禁用
+19.ng-focus 规定聚焦事件的行为
+20.ng-form 指定HTML表单继承控制器表单
+21.ng-hide 隐藏或显示HTML元素
+22.ng-href 为the<a>元素指定链接
+23.ng-if 如果条件为true DOM元素存在 false DOM元素不存在
+24.ng-include 在应用中包含HTML文件
+25.ng-init 定义应用的初始化值
+26.ng-jq 定义应用必须使用到的库，如：jQuery
+27.ng-keydown 规定按下按键事件的行为
+28.ng-keypress规定按下按键事件的行为
+29.ng-keyup 规定松开按键事件的行为
+30.ng-list 将文本转换为列表(数组)
+31.ng-model 绑定HTML控制器的值到应用数据
+32.ng-model-options 规定如何更新模型
+33.ng-mousedown 规定按下鼠标按键时的行为
+34.ng-mouseenter 规定鼠标指针穿过元素时的行为
+35.ng-mouseleave 规定鼠标指针离开元素时的行为
+36.ng-mousemove 规定鼠标指针在指定的元素中移动时的行为
+37.ng-mouseover 规定鼠标指针位于元素上方时的行为
+38.ng-mouseup 规定当在元素上松开鼠标按钮时的行为
+39.ng-non-bindable 规定元素或子元素不能绑定数据
+40.ng-open 指定元素的open属性
+41.ng-options 在<select>列表中指定<options>
+42.ng-paste 规定粘贴事件的行为
+43.ng-pluralize 根据本地化规则显示信息
+44.ng-readonly 指定元素的readonly属性
+45.ng-repeat 定义集合中每项数据的模板
+46.ng-selected 指定元素的selected属性
+47.ng-show 显示或隐藏HTML元素
+48.ng-src 指定<img>元素的src属性
+49.ng-srcset 指定<img>元素的srcset属性
+50.ng-style 指定元素的style属性
+51.ng-submit 规定onsubmit事件发生时执行的表达式
+52.ng-switch 规定显示或隐藏子元素的条件
+53.ng-transclude 规定填充的目标位置
+54.ng-value 规定input元素的值
+

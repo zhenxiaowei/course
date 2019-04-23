@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="../../scripts/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<div style="width:200px;height:40px;background:#eee;cursor:pointer;">
+	<a href="http://www.baidu.com">home</a>
+</div>
+<script>
+$(document).ready(function() {	
+	$("div").click(function(){  
+		window.location=$(this).find("a").attr("href");
+		//attr() 方法设置或返回被选元素的属性值。
+		return false;  
+	}); 
+});
+//Location 对象包含有关当前 URL 的信息。
+//Location 对象是 window 对象的一部分，可通过 window.Location 属性对其进行访问。
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<!--
+过滤器可以通过一个管道字符（|）和一个过滤器添加到表达式中。.
+(下面的两个实例，我们将使用前面章节中提到的 person 控制器)
+-->
+
+<!--uppercase 过滤器将字符串格式化为大写：-->
+<!--<div ng-app="myApp" ng-controller="personCtrl">
+
+    <p>姓名为 {{ lastName | uppercase }}</p>
+
+</div>-->
+
+
+<!--lowercase 过滤器将字符串格式化为小写：-->
+<div ng-app="myApp" ng-controller="personCtrl">
+
+    <p>姓名为 {{ lastName | lowercase }}</p>
+
+</div>
+<script src="personController.js"></script>
+
+</body>
+</html>

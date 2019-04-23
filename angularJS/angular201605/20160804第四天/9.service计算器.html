@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <input type="text" ng-model="a">
+    <select ng-model="cal">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" ng-model="b">
+    <button ng-click="doCal()">=</button>
+    {{result}}
+</div>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.service('myPro',function () {
+        this.currency='$';
+        this['+']=(a,b)=>this.currency + (parseFloat(a)+parseFloat(b));
+        this['-']=(a,b)=>this.currency + (parseFloat(a)-parseFloat(b));
+        this['*']=(a,b)=>this.currency + (parseFloat(a)*parseFloat(b));
+        this['/']=(a,b)=>this.currency + (parseFloat(a)/parseFloat(b))
+    });
+    app.controller('myCtrl',function ($scope,myPro) {
+        $scope.cal="+";
+        $scope.doCal = function () {
+            $scope.result = myPro[$scope.cal]($scope.a,$scope.b)
+        };
+    });
+
+</script>
+</body>
+</html>

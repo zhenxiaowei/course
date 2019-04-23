@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+<body>
+
+<div  ng-app="">
+    <p>1、uppercase，lowercase 大小写转换</p>
+    {{ "lower cap string" | uppercase }}<br>
+    {{ "TANK is GOOD" | lowercase }}
+
+    <p>2、date 格式化</p>
+    {{1490161945000 | date:"yyyy-MM-dd HH:mm:ss"}}
+
+    <p>3、number 格式化（保留小数）</p>
+    {{149016.1945000 | number:2}}
+
+    <p>4、currency货币格式化</p>
+    {{ 250 | currency }} <br>
+    {{ 250 | currency:"RMB ￥ " }}
+
+    <p>5、filter查找</p>
+    <p>查找name为iphone的行</p>
+    {{ [{"age": 20,"id": 10,"name": "iphone"},
+    {"age": 12,"id": 11,"name": "sunm xing"},
+    {"age": 44,"id": 12,"name": "test abc"}
+    ] | filter:{'name':'iphone'} }}
+
+    <p>6、limitTo 截取</p>
+    {{"1234567890" | limitTo :6}}<br>
+    {{"1234567890" | limitTo:-4}}
+
+    <p>7、orderBy 排序</p>
+    <p>根id降序排</p>
+    {{ [{"age": 20,"id": 10,"name": "iphone"},
+    {"age": 12,"id": 11,"name": "sunm xing"},
+    {"age": 44,"id": 12,"name": "test abc"}
+    ] | orderBy:'id':true }}
+
+    <p>根据id升序排</p>
+    {{ [{"age": 20,"id": 10,"name": "iphone"},
+    {"age": 12,"id": 11,"name": "sunm xing"},
+    {"age": 44,"id": 12,"name": "test abc"}
+    ] | orderBy:'id' }}
+</div>
+</body>
+</html>

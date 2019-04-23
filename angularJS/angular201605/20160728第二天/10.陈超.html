@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div ng-controller="myCtrl1">
+    输入的钱数 <input type="text" ng-model="total"><br/>
+    <div ng-controller="myCtrl2">
+        名称 <span>{{obj.name}}</span><br/>
+        单价 <span>{{obj.price}}</span><br/>
+        数量 <input type="text" ng-model="obj.count">
+    </div>
+</div>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller("myCtrl1", ['$scope', '$interval', '$timeout', function ($scope, $interval, $timeout) {
+        $scope.$on('count', function (event, data) {
+            $scope.total = data.count * data.price;
+        });
+        $scope.$watch(function () {
+            return $scope.total;
+        }, function (newVal) {
+            $scope.$broadcast('total', newVal);
+        });
+    }]);
+    app.controller("myCtrl2", ['$scope', '$interval', '$timeout', function ($scope, $interval, $timeout) {
+        $scope.obj = {
+            name: '书',
+            price: 10,
+            count: 5
+        };
+        $scope.$watch(function () {
+            return $scope.obj.count;
+        }, function (newVal) {
+            var res = {count: newVal, price: $scope.obj.price};
+            $scope.$emit('count', res);
+        });
+        $scope.$on('total', function (event, data) {
+            $scope.obj.count = data / $scope.obj.price;
+            console.log($scope.count,$scope.obj.price)
+        });
+    }]);
+
+
+</script>
+</body>
+</html>
+
+
+
+
+张慧楠
+
+

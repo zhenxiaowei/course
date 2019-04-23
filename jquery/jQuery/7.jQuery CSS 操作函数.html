@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="js/jquery-1.11.3.js"></script>
+</head>
+<body>
+<h3 style="text-align: center;">下面列出的这些方法设置或返回元素的 CSS 相关属性。</h3>
+<table class="table-bordered table">
+    <tbody><tr>
+        <th>CSS 属性</th>
+        <th>描述</th>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/css_css.asp" title="jQuery CSS 操作 - css() 方法">css()</a></td>
+        <td>设置或返回匹配元素的样式属性。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/css_height.asp" title="jQuery CSS 操作 - height() 方法">height()</a></td>
+        <td>设置或返回匹配元素的高度。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/css_offset.asp" title="jQuery CSS 操作 - offset() 方法">offset()</a></td>
+        <td>返回第一个匹配元素相对于文档的位置。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/css_offsetparent.asp" title="jQuery CSS 操作 - offsetParent() 方法">offsetParent()</a></td>
+        <td>返回最近的定位祖先元素。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/css_position.asp" title="jQuery CSS 操作 - position() 方法">position()</a></td>
+        <td>返回第一个匹配元素相对于父元素的位置。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/css_scrollleft.asp" title="jQuery CSS 操作 - scrollLeft() 方法">scrollLeft()</a></td>
+        <td>设置或返回匹配元素相对滚动条左侧的偏移。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/css_scrolltop.asp" title="jQuery CSS 操作 - scrollTop() 方法">scrollTop()</a></td>
+        <td>设置或返回匹配元素相对滚动条顶部的偏移。</td>
+    </tr>
+
+    <tr>
+        <td><a href="/jquery/css_width.asp" title="jQuery CSS 操作 - width() 方法">width()</a></td>
+        <td>设置或返回匹配元素的宽度。</td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
+<script>
+    $(".table tr:even").css("background","#d4d4d4");
+    $(".table tr:odd").css("background","#fff");
+    $(".table tr").eq(0).css({background:"#555",color:"#fff"});
+
+</script>

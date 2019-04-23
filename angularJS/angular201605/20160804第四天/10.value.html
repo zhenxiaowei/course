@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    {{name}}
+</div>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    //    app.value('zfpx','珠峰培训');
+    //   封装的factory的方法，不可以使用配置函数
+    app.constant('zfpx', {name:111});
+    app.config(function (zfpx) {
+//       使用配置函数的时候，注入的就是定义的名字
+        zfpx.name = 222;
+    });
+    //    用来定义常量的，可以使用配置函数来配置常量(对象里面的值)
+    app.controller('myCtrl', function ($scope, zfpx) {
+//        zfpx 代表的就是对应的值
+        $scope.name = zfpx.name;
+    })
+
+</script>
+</body>
+</html>

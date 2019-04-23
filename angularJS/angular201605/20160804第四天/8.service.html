@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    {{result}}
+</div>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.service('zfpxFac', function () {
+        this['+'] = (a, b)=>a + b
+    });
+    app.controller('myCtrl', function ($scope, zfpxFac) {
+//        zfpxFac : 是定义服务的时候的一个实例
+        $scope.result = zfpxFac['+'](1, 2)
+    });
+
+    //  3.service : 注入服务的时候获取的是定义的服务的一个实例
+    //    不可以使用配置函数
+
+    // provider factory service
+    // 1. provider
+    //    定义服务的时候必须有this.$get方法，
+    //    注入服务的时候先获取该方法的实例中的$get的方法，再获取$get的返回值，注入到函数中
+    //    可以使用config 配置函数
+    // 2.factory
+    //    注入服务的时候取得是return 之后的值
+    //    不可以使用配置函数
+    // 3. service
+    //    注入服务的时候取得是一个实例
+    //    不可以使用配置函数
+</script>
+</body>
+</html>

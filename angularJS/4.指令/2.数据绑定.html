@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<!--
+数据绑定
+上面实例中的 {{ firstName }} 表达式是一个 AngularJS 数据绑定表达式。
+AngularJS 中的数据绑定，同步了 AngularJS 表达式与 AngularJS 数据。
+{{ firstName }} 是通过 ng-model="firstName" 进行同步。
+在下一个实例中，两个文本域是通过两个 ng-model 指令同步的：
+-->
+<div data-ng-app="" data-ng-init="quantity=1;price=5">
+
+    <h2>价格计算器</h2>
+
+    数量: <input type="number" ng-model="quantity">
+    价格: <input type="number" ng-model="price">
+
+    <p><b>总价:</b> {{quantity * price}}</p>
+
+</div>
+
+</body>
+</html>

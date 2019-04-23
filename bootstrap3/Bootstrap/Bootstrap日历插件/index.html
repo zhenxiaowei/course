@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" href="datepicker3.css"/>
+
+</head>
+<body>
+<div style="margin: 50px auto;width: 100px;height: 50px;">
+    <input type="text" class="datepicker" placeholder="请选择日期" />
+</div>
+
+
+<div class="input-group input-medium date-picker input-daterange" data-date-format="yyyy-mm-dd" style="margin: 50px auto;">
+    <input name="dtBegin" class="form-control" style="font-size: 13px;" type="text" value="">
+    <span class="input-group-addon">到</span>
+    <input name="dtEnd" class="form-control" style="font-size: 13px;" type="text" value="">
+</div>
+<script src="jquery-1.11.3.js"></script>
+<script src="bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $(".datepicker").datepicker({
+            language: "zh-CN",
+            autoclose: true,//选中之后自动隐藏日期选择框
+            clearBtn: true,//清除按钮
+            todayBtn: true,//今日按钮
+            format: "yyyy-mm-dd"//日期格式，详见 http://bootstrap-datepicker.readthedocs.org/en/release/options.html#format
+        });
+    });
+    $(".date-picker").datepicker({
+        language: "zh-CN",
+        autoclose: true
+    });
+</script>
+
+</body>
+</html>

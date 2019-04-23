@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div ng-controller="myCtrl1">
+    输入的钱数 <input type="text" ng-model="total" ng-change="change()"><br/>
+    <div ng-controller="myCtrl2">
+        名称 <span>{{obj.name}}</span><br/>
+        单价 <span>{{obj.price}}</span><br/>
+        数量 <input type="text" ng-model="obj.count" ng-change="change()">
+    </div>
+</div>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl1',function ($scope) {
+        $scope.change = function () {
+            $scope.$broadcast('total',$scope.total)
+        };
+        $scope.$on('count', function (event, data) {
+            $scope.total=data
+        });
+
+    });
+    app.controller('myCtrl2',function ($scope) {
+        $scope.obj = {
+            name:'书',
+            price:10,
+            count:1
+        };
+//        $scope.$watch('obj.count',function (newVal, oldVal) {
+//            var total=newVal*$scope.obj.price;
+//            $scope.$emit('count',total );
+//        });
+        $scope.change = function () {
+            var total=$scope.obj.count * $scope.obj.price;
+            $scope.$emit('count',total );
+        };
+        $scope.$on('total', function (event,data ) {
+            $scope.obj.count=Math.floor(data/$scope.obj.price);
+        });
+    });
+//  应用需求：
+// 有两个可输入的值，一个总价钱 在一个作用域，
+// 一个数量，单价10，名字:书 在另外一个作用域
+// 当我输入 总价钱的时候，显示出来可以买多少书，当我输入数量，显示需要多少钱
+//   步骤：
+//    1.监听obj.count的变化，把计算出来的总价，发射给父级作用域的total
+//    2.父级作用域的total监听子级传过来的值
+//    3.父级作用域把total的值传给子级作用域，子级计算出数量赋值给obj.count
+//   用ng-change事件不会触发双向监听的问题引起的bug，
+//
+
+//  01. $watch()
+//    1.可以用$scope.$watch()调用这个方法
+//    2.参数1 监听的是存储数据的变量，或者是一个方法取他的return的值；
+//    参数2 回调函数中的参数 1)我们监听的这个变量的最新的值 参数2)我们监听数据的上一个值
+//  02. ng-change
+//    1.是一个指令，用在标签里面，监听的是ng-model上的值得变化
+//    2.当ng-model上的值发生变化的时候，触发ng-change上的方法
+
+//  03. $on
+//    1.$on 监听的是$emit 或者 $broadcast 所传播的事件
+//    2. 参数1)$emit 或者 $broadcast 所传播的事件名称，参数2)监听事件触发的回调函数，回调函数的参数 1 事件对象，后面的参数是 由$emit 或者 $broadcast传播回来的值；
+//    3.主要用来实现不同作用域之间的数据传递；
+
+
+
+
+
+
+</script>
+</body>
+</html>

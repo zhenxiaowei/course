@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myApp2">
+<head lang="en" >
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bootstrap.css"/>
+
+</head>
+<body>
+<div ng-controller="myCtrl">
+    {{name}}
+</div>
+
+<script type="text/javascript" src="angular.js"></script>
+<script>
+    var app1 = angular.module('myApp1',[]);
+    app1.controller('myCtrl',function($scope){
+        $scope.name='zfpx';
+    });
+    var app2 = angular.module('myApp2',['myApp1']);
+
+</script>
+</body>
+<ml>

@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="../../scripts/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<textarea id="mytextarea"></textarea>
+
+<script>
+$(document).ready(function(){
+//当 DOM（文档对象模型） 已经加载，并且页面（包括图像）已经完全呈现时，会发生 ready 事件。
+    $(document).bind("contextmenu",function(e){
+       //bind() 方法为被选元素添加一个或多个事件处理程序，并规定事件发生时运行的函数。
+        return false;
+        //contextmenu属性规定元素的上下文菜单，上下文菜单会在用户右键点击的时候出现,false为禁止出现，true为出现
+    });  
+});
+</script>
+</body>
+</html>

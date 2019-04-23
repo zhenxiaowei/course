@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>angular</title>
+</head>
+<body>
+<div>
+  <div ng-init="phones=[{name:['小米3','小米4']},{name:['苹果3','苹果4']},{name:['华为3','华为4']}]"></div>
+  <div ng-repeat="phone in phones">
+    <span ng-repeat="p in phone.name">
+      {{p}}
+    </span>
+  </div>
+</div>
+<script src="angular.js"></script>
+</body>
+</html>

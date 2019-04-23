@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<!--
+Scope 作用范围
+了解你当前使用的 scope 是非常重要的。
+在以上两个实例中，只有一个作用域 scope，所以处理起来比较简单，但在大型项目中， HTML DOM 中有多个作用域，这时你就需要知道你使用的 scope 对应的作用域是哪一个。
+-->
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    <ul>
+        <li ng-repeat=" x in names">{{x}}</li>
+        <!--当我们使用 ng-repeat 指令时，每个重复项都访问了当前的重复对象-->
+    </ul>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function($scope) {
+        $scope.names = ["Emil", "Tobias", "Linus"];
+    });
+    //每个 <li> 元素可以访问当前的重复对象，这里对应的是一个字符串， 并使用变量 x 表示。
+</script>
+
+</body>
+</html>

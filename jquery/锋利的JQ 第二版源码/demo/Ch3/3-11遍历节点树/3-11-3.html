@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>3-11-3</title>
+ <!--   引入jQuery -->
+ <script src="../../scripts/jquery.js" type="text/javascript"></script>
+ <script type="text/javascript">
+ //<![CDATA[
+  $(function(){
+	$(document).bind("click", function (e) {
+	//bind() 方法为被选元素添加一个或多个事件处理程序，并规定事件发生时运行的函数。
+		//将事件和函数绑定到元素
+		//规定向被选元素添加的一个或多个事件处理程序，以及当事件发生时运行的函数。
+		$(e.target).closest("li").css("color","red");
+		//closest() 方法获得匹配选择器的第一个祖先元素，从当前元素开始沿 DOM 树向上。从当前元素开始
+
+	})
+  });
+  //]]>
+  </script>
+</head>
+<body>
+	<p title="选择你最喜欢的水果." >你最喜欢的水果是?</p>
+	<ul>
+	  <li title='苹果'>苹果</li>
+	  <li title='橘子'>橘子</li>
+	  <li title='菠萝'>菠萝</li>
+	</ul>
+</body>
+</html>
+
+ 

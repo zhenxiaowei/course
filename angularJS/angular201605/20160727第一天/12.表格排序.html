@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>angular</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<!--<input type="text" ng-model="query">-->
+<br/>
+<br/>
+<div ng-init="persons=[{name:'张三',age:20,math:80},{name:'李四',age:18,math:90},{name:'王五',age:25,math:70}];flag=true
+     " ></div>
+<table class="table table-bordered">
+    <tr>
+        <th>序号</th>
+        <th ng-click="flag=!flag;query='name'">姓名</th>
+        <th>年龄</th>
+        <th>数学</th>
+    </tr>
+    <!--  <tr ng-repeat="person in persons |filter : query ">
+        <td>{{$index+1}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.age}}</td>
+        <td>{{person.math}}</td>
+      </tr>-->
+    <tr ng-repeat="person in persons |orderBy:query:flag ">
+        <td>{{$index+1}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.age}}</td>
+        <td>{{person.math}}</td>
+    </tr>
+
+
+</table>
+<script src="angular.js"></script>
+<script>
+
+    //  filter:是过滤数组，找到自己想要的内容以一个新的数组返回
+    //  ng-repeat="person in persons |filter : query"
+    //  persons |filter : query以一个新的数据返回
+    //  person in 一个新的数组
+
+    // orderBy:'age' 以age进行排序之后返回一个新的数组
+    //  person in 一个新的数组
+    // orderBy:'age':true 默认的是false ：从小到大排序，true是从大到小排序
+    // 自己写一个点击年龄或者数学实现正向排序，再点击实现反向排序
+    // 写完发群里面
+</script>
+</body>
+</html>

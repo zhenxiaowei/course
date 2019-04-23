@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<!--ng-init 设置默认选中值。-->
+    <select ng-init="selectedName = names[0]" ng-model="selectedName" ng-options="x for x in names">
+    </select>
+
+</div>
+<!--
+AngularJS 可以使用数组或对象创建一个下拉列表选项。
+-->
+<script>
+    /*
+    * 使用 ng-options 创建选择框
+     在 AngularJS 中我们可以使用 ng-option 指令来创建一个下拉列表，列表项通过对象和数组循环输出
+    * */
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.names = ["Google", "Runoob", "Taobao"];
+    });
+</script>
+
+<p>该实例演示了 ng-options 指令的使用。</p>
+
+</body>
+</html>

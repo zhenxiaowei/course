@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp2">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    {{name1}}
+    {{name2}}
+    <br/>
+    <br/>
+    <!--用于@  {{ }}-->
+    <!--<div zfpx-dr namexx="{{name}}"></div>-->
+    <!--用于=  取得是一个变量-->
+    <div zfpx-dr namexx="name1"  greetxx="greet(name)"></div>
+    <div zfpx-dr namexx="name2"  greetxx="greet(name)"></div>
+</div>
+
+<script src="angular.js"></script>
+<script>
+    var app2 = angular.module('myApp2', []);
+    app2.controller("myCtrl",function ($scope) {
+        $scope.name1 = '珠峰培训1';
+        $scope.name2 = '珠峰培训2';
+        $scope.greet = function (a) {
+            console.log(a)
+        };
+    });
+    app2.directive('zfpxDr',function () {
+        return{
+            template:'<input type="text" ng-model="myName"><button ng-click="myGreet({name:myName})">打招呼</button>',
+            restrict:'ECMA',
+            scope:{
+//                myName:'@namexx'
+//              @ 取得是拥有自定义指令的 namexx属性所对应的字面量的值
+               myName:'=namexx',
+//             = 取得是拥有自定义指令的 namexx属性对应的name变量的值，可是实现子级改变父级内容的效果
+               myGreet:'&greetxx'
+//             & 在这里最终取得是 myCtrl 作用域中的 greet 方法
+            }
+        }
+    });
+
+//    自定义指令 directive
+//    angular.module('myApp2', []) 的返回值 调用directive，实现自定义指令
+
+
+
+</script>
+</body>
+</html>

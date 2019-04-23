@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <input type="text" ng-model="value">
+    {{value}}
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl',function ($scope) {
+        $scope.value = 1;
+        
+//        $scope.$watch()
+//        监听该作用域中数据变化的 ，
+// $watch 第一个参数是存储数据的变量也可以是一个函数，取得是他的返回值，
+// 第二个为回调函数
+//        $scope.$watch('value',function (newVal, oldVal) {
+////      回调函数中第一个传递的新的value的值，第二个参数传递的是旧的value值
+//            console.log(newVal, oldVal)
+//        });
+        $scope.$watch(function () {
+            return $scope.value;
+//          取得是return后面的值
+        },function (newVal, oldVal) {
+//      回调函数中第一个传递的新的value的值，第二个参数传递的是旧的value值
+            console.log(newVal, oldVal)
+        })
+
+    })
+//$watch是一个scope函数，用于监听模型变化，当你的模型部分发生变化时它会通知你。
+
+
+
+</script>
+</body>
+</html>

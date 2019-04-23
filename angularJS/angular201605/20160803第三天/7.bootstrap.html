@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl" id="div1">
+    {{name}}
+</div>
+<div ng-controller="myCtrl" id="div2">
+    {{name}}
+</div>
+<script src="angular.js"></script>
+<script>
+    var app1 = angular.module('myApp1', []);
+    app1.controller('myCtrl', function ($scope) {
+        $scope.name = 'zfpx1';
+    });
+    var app2 = angular.module('myApp2', []);
+    app2.controller('myCtrl', function ($scope) {
+        $scope.name = 'zfpx2';
+    });
+// bootstrap:手动开启ng-app
+    angular.bootstrap(div1,['myApp1']);
+    angular.bootstrap(div2,['myApp2']);
+//  参数1 获取的页面中的DOM元素，
+//  参数2 数组中加入要在哪一个模板下执行
+
+</script>
+</body>
+</html>

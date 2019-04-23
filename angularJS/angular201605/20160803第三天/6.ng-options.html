@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <select ng-model='err' ng-options="a.id as a.name for a in arr" ng-change="errCon()">
+        <!--a.id 作为 option value值，a.name 就是标签里面的内容 a 就是 arr中的每一项-->
+        <!--ng-model='err' 存储的是option value=""的值-->
+        <option value="">请选择</option>
+    </select>
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.arr=[{name:'zhangsan',id:1},{name:'lisi',id:2},{name:'wangwu',id:3},{name:'zhaoliu',id:4}];
+        $scope.errCon = function () {
+            console.log($scope.err);
+        };
+
+    });
+// ng-options 用在select标签上的
+
+</script>
+</body>
+</html>

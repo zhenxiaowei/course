@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <script src="../js/jquery-1.11.3.js">
+    </script>
+    <script>
+        //下面的例子演示如何通过 jQuery val() 方法获得输入字段的值：
+        $(document).ready(function(){
+            $("button").click(function(){
+                alert("值为: " + $("#test").val());
+            });
+        });
+    </script>
+</head>
+
+<body>
+<p>名称: <input type="text" id="test" value="菜鸟教程"></p>
+<button>显示值</button>
+</body>
+</html>

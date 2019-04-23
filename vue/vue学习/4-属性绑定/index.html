@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{name}}</h1>
+    <h1>{{job}}</h1>
+    <h1>{{greet('afternoon')}}</h1>
+    <a v-bind:href="website">web开发</a>
+    <input type="text" v-bind:value="job">
+    <p v-html="websiteTag"></p>
+</div>
+</body>
+</html>
+<script src="app.js"></script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl1">
+    <input type="text" ng-model="value">
+    <table class="table table-bordered">
+        <tr>
+            <th>序号</th>
+            <th>名称</th>
+            <th>价格</th>
+            <th>数量</th>
+            <th>小计</th>
+            <th>操作</th>
+        </tr>
+        <tr ng-repeat="book in obj | filter:value">
+            <td>{{$index+1}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.price}}</td>
+            <td><input type="text" ng-model="book.count" ></td>
+            <td>{{book.price*book.count}}</td>
+            <td><button class="btn btn-danger">删除</button></td>
+        </tr>
+        <tr><td>总价钱 {{allTotal}}</td> </tr>
+    </table>
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl1',function ($scope) {
+        $scope.obj = [{name:'javascript',price:60,count:1},{name:'nodeJS',price:50,count:1},{name:'HTML5',price:55,count:1},{name:'CSS3',price:45,count:1}];
+
+
+
+    });
+//    购物车
+//    1.在文本框内输入内容，显示我们要的结果；
+//    2.物品的数量是可以输入的，每一行有一个小计，计算出该物品的总价，每一行的最后有一个删除按钮，点击实现删除该行的功能；
+//    3.在列表的最下面有一个总价钱 ，计算出我们所有物品的总价钱
+
+
+
+</script>
+</body>
+</html>

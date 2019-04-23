@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl" ng-click="fn()">
+   {{age}}
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+//    1.$apply  $interval $timeout
+//    app.controller('myCtrl',function ($scope,$interval,$timeout) {
+//        创建控制器的时候，会注入一个对象$scope，可以用来定义该作用域中的变量或者方法
+//        console.log($scope)
+//        $scope.age = 8;
+//        setInterval(function () {
+//            $scope.age++;
+//         1.第一种写法
+//            $scope.$apply();
+//      实现强制刷新的作用，让页面中的变量对应的值跟着模型上的该变而发生改变;
+//          2.第二种写法  以函数的形式传递到$apply里面
+//            $scope.$apply(function () {
+//                $scope.age++;
+//            });
+//        },1000)
+//        $interval(function () {
+//            $scope.age ++;
+//        },1000)
+//     });
+
+
+//    注入自己的定时器 $interval $timeout
+
+// 作用域有一个类似于原型继承的机制
+
+//  2. '$scope','$interval','$timeout' 第二种注入的方法
+//    app.controller('myCtrl',['$scope','$interval','$timeout',function ($a,$interval,$timeout) {
+////        在内部的 $a 就是 $scope
+//        $a.age = 8;
+//        $interval(function () {
+//            $a.age ++;
+//       },1000)
+//    }]);
+//  防止注入$scope,$interval,$timeout名称在上线的时候被压缩成单个字符,angularJS无法解析其方法，
+// 改变之后的写法函数中变量可以换成其他值，不会影响angularJS正常的解析
+
+//    3. 用$timeout 实现 $interval
+    app.controller('myCtrl',['$scope','$interval','$timeout',function ($scope,$interval,$timeout) {
+//        定义变量和方法都是定义在$scope上，$scope是一个对象
+        $scope.age=8;
+        $scope.fn = function () {
+            $timeout.cancel(timer);//清除定时器
+            $scope.age ++;
+            var timer = $timeout($scope.fn,1000)
+        };
+    }]);
+
+</script>
+</body>
+</html>

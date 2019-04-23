@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <input type="text" ng-model="a">
+    <select ng-model="cal">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" ng-model="b">
+    <button ng-click="doCal()">=</button>
+    {{result}}
+</div>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.provider('myPro',function () {
+        var currency='$';
+        this.setCurrency=function (cur) {
+            currency=cur;
+        };
+        this.$get=function () {
+            return {
+                '+':(a,b)=>currency + (parseFloat(a)+parseFloat(b)),
+                '-':(a,b)=>currency + (parseFloat(a)-parseFloat(b)),
+                '*':(a,b)=>currency + (parseFloat(a)*parseFloat(b)),
+                '/':(a,b)=>currency + (parseFloat(a)/parseFloat(b)),
+
+            }
+        }
+    });
+    app.config(function (myProProvider) {
+        myProProvider.setCurrency('¥')
+    });
+    app.controller('myCtrl',function ($scope,myPro) {
+        $scope.doCal = function () {
+            $scope.result = myPro[$scope.cal]($scope.a,$scope.b)
+        };
+    });
+
+//  自定义服务
+//   1.provider
+//    最强大的定义服务的一个方法，并不是最常用的一种方法
+//    当注入服务的时候获取的值，定义的函数中的实例中的$get方法返回的一个对象(最终获取的是对象)
+//  '+':(a,b)=> a+b  箭头函数 es6定义函数的一个方法,等价于
+//   '+':function(a,b){
+//        return a+b
+//    }
+//    '+':(a,b)=> {
+//        var c=10;
+//        return a+b+c
+//    }
+
+//    用provider 定义的服务，可以调用配置函数 config
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>angular</title>
+
+</head>
+<body>
+1. currency 货币过滤器
+<!--<input type="text" ng-model="name">-->
+<!--{{name | currency : '￥'}}-->
+<!--{{name | currency : '$'}}<br/>-->
+
+2. date 日期过滤器->时间/日期
+<!--{{1469603978903 |date: 'yyyy-MM-dd HH:mm:ss' }}<br/>-->
+
+3. json 把普通的对象转换成json格式的对象
+<!--{{name="zxw" | json}}-->
+
+4. uppercase lowercase
+<!--<input type="text" ng-model="name">-->
+<!--{{name | uppercase}}-->
+<!--{{name | lowercase}}-->
+
+5. number 定义小数点的位数
+<!--<input type="text" ng-model="name">-->
+<!--{{name | number:3}}-->
+
+6. limitTo 截取字符串的长度，数组的长度
+<!--{{'zfpx' | limitTo:2}}-->
+<!--{{[1,2,3,4] | limitTo:2}}-->
+
+<!--7.filter -->
+<!--
+  (1)给定的数组中过滤器其子集以一个新的数组的形式返回 例如用于搜索框
+  (2)它的第一个参数可以是字符串，也可以是对象还还可以是函数（用来在数组中选择元素）
+  (3)都二个参数有三种情况：true(严格比较) false(不区分大小写的比较) 函数(函数的结果为真就接受这个元素)
+-->
+<!--8. orderBy -->
+<!--
+   (1)可以用表达式对指定的数组进行排序
+   (2)接受两个参数 第一个必须(函数 字符串 数组) 确定数组排序的方向 第二个可选 （为true 结果进行反转）
+-->
+
+
+
+
+
+
+<script src="angular.js"></script>
+<script>
+  /**
+   * currency
+   date
+   json
+   uppercase lowercase
+   number
+   limitTo
+   filter
+   orderBy
+   */
+
+//  {{ 数据  | 过滤器 : 参数}}
+
+
+
+
+
+</script>
+</body>
+</html>

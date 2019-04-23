@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp2">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl">
+    {{name | zfpxFilter}}
+</div>
+<script src="angular.js"></script>
+<script>
+    var app2 = angular.module('myApp2', []);
+    app2.controller('myCtrl',function ($scope) {
+        $scope.name = 'zfpx';
+    });
+//    app2.filter('zfpxFilter',function (uppercaseFilter) {
+////   参数1 自定义过滤器的名字，参数2是函数，用来定义过滤器
+//        return function (input,len) {
+////      参数1，要改变的内容，参数2往后为：后面传递进来的参数
+//            len=len||0;
+//            return uppercaseFilter(input.slice(0,len))+input.slice(len);
+//        }
+//    });
+// 自定义filter
+// angular.module('myApp2', []);返回值调用方法filter ,用来自定义过滤器
+
+
+//  1）前边 len  位大写
+//
+//  2）需求 ：实现收尾大写，中间小写的过滤器
+    app2.filter('zfpxFilter',function (uppercaseFilter,lowercaseFilter) {
+        return function (input) {
+            return uppercaseFilter(input[0])+lowercaseFilter(input.slice(1,input.length-1))+uppercaseFilter(input[input.length-1]);
+        }
+    });
+
+
+</script>
+</body>
+</html>

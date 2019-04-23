@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>angular</title>
+  <style>
+    .c1{
+      background: red;
+    }
+    .c2{
+      background: green;
+    }
+  </style>
+
+</head>
+<body>
+<div ng-init="phones=['小米','苹果','华为','小米','苹果','华为']"></div>
+<div ng-repeat="phone in phones track by $index" ng-class="{c1:$odd,c2:$even}">
+  {{phone}}
+</div>
+
+
+<script src="angular.js"></script>
+<script>
+//当遍历的数组中有相同的数据需要在遍历数组的时候在后面加上track by $index 来解决错误
+</script>
+</body>
+</html>

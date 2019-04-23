@@ -1,0 +1,12 @@
+<div ng-controller="myCtrl">
+    <input type="text" ng-model="a">
+    <select ng-model="cal">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" ng-model="b">
+    <button ng-click="doCal()">=</button>
+    {{result}}
+</div>

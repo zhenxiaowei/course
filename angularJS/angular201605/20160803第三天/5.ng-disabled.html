@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <button class="btn btn-primary" ng-disabled="flag" ng-click="getCode()"> {{val}} </button>
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $interval) {
+        $scope.val = '点击获取验证码';
+        $scope.flag = false;
+        $scope.getCode = function () {
+            var num=5;
+            $scope.flag = true;
+            $scope.val=num;
+            var timer=$interval(function () {
+                if(num<=0){
+                    $interval.cancel(timer);
+                    $scope.flag = false;
+                    $scope.val = '点击获取验证码';
+                    return;
+                }
+                num--;
+                $scope.val=num;
+
+            },1000)
+        };
+
+
+    });
+
+//    ng-disabled : 如果为true 是不可点击状态 false 是可点击状态
+//    可以用在input select textarea button
+
+//    需求 ：
+//    1.点击获取验证码，按钮处于不可点击状态，内容为 多少秒后可再获取，(从5开始倒计时)
+//    2.当倒计时结束的时候，变为可点击状态，内容为点击获取验证码
+</script>
+</body>
+</html>

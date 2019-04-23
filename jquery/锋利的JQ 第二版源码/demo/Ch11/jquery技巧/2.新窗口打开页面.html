@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="../../scripts/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<a href="http://www.baidu.com" >新窗口</a>
+
+<a href="http://www.baidu.com" rel="external">新窗口</a>
+<!--rel=’nofllow’的作用，它是告诉搜索引擎，不要将该链接计入权重。-->
+<!--rel="external" 此属性的意思是告诉搜索引擎，这个链接不是本站链接，其实作用相当于target=‘_blank’。-->
+<!--rel=’external nofollow’ 其实上面已经说过rel=’nofollow’ 和 rel=’external’ 两种属性的所代表的意思了。这个属性基本上是相当于将两种属性结合起来，大致可以解释为 “这个链接非本站链接，不要爬取也不要传递权重”。因此在SEO的角度来说，是一种绝对隔绝处理的方法，可以有效减少蜘蛛爬行的流失。-->
+
+
+<a href="29.扩展String对象的方法.html" >当前窗口</a>
+<a href="#name">当前窗口</a>
+
+
+<script>
+$(document).ready(function() {  
+     //例子1: href=”http://”的超链接将会在新窗口打开链接 
+     $('a[href^="http://"]').attr("target", "_blank");  
+ //attr() 方法设置或返回被选元素的属性值。
+     //例子2: rel="external"的超链接将会在新窗口打开链接  
+     $("a[rel$='external']").click(function(){  
+          this.target = "_blank";  
+     });  
+});
+
+//a标签的属性
+//a:link {color: blue;} /* 默认状态 */
+//a:hover {color: red;}/*鼠标经过和放置的状态*/
+//a:active {color: yellow;}/*鼠标点击的状态*/
+//a:visited {color: green;/ }/*鼠标点击后的状态*
+//
+//target="_blank"
+//    _self 在本窗口打开   target 默认不写的时候 是在本窗口打开
+//    _blank 在新窗口打开
+//
+//    href="javascript:;"
+//    空和一个# 代表空连接 返回到页面的顶部
+//        ### 非空链接 但是会在url的部分添加上###
+//        javascript:;阻止事件发生（把事件都阻止掉）
+//<a href="跳转目标" target="目标窗口的弹出方式">文本或图片</a>
+</script>
+</body>
+</html>

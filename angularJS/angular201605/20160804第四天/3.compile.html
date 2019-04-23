@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div timer="4">
+    <p>{{name}}</p>
+</div>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.directive('timer', function () {
+        return {
+            compile: function (tElement, tAttrs) {
+//           tElement : template element 是jQuery对象 -> 原始的DOM节点，
+//           tAttrs  : template attribute -> 原始的DOM节点的属性
+//            1. 获取到当前元素的儿子
+//            2.获取到  tAttrs中timer的值，
+//            3.for循环 克隆当前元素的儿子添加到当前元素中，
+                var eleChild = tElement.children();
+                for (var i = 0; i < tAttrs['timer'] - 1; i++) {
+                    tElement.append(eleChild.clone())
+                }
+                return function (scope, element, attrs) {
+//                这个返回值相当于link阶段，实现作用域和DOM元素链接，compile和link是不同存的，存在compile的时候，link就是无效的
+                    scope.name='陈超帅哥';
+                }
+            },
+            link:function (scope, element, attrs) {
+//                这个是无效的
+                scope.name='珠峰培训';
+            }
+        }
+    });
+
+    //  compile : 自定义指令中定义编译阶段的一个属性
+    //  编译阶段实现DOM元素的转换
+    //  这是所说的DOM元素都是未经link处理过的原始的DOM元素
+    //
+    //   根据timer 后面的数字 规定生成DOM元素的个数，实现DOM元素的转换
+
+
+</script>
+</body>
+</html>

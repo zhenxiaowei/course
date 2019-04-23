@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp2">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <!--1.用法-->
+    <!--{{name | uppercase}}-->
+    {{name}}
+</div>
+<script src="angular.js"></script>
+
+<script>
+    var app2 = angular.module('myApp2', []);
+//    app2.controller('myCtrl',function ($scope,$filter) {
+//        $scope.name = 'zfpx';
+//        $scope.name = $filter('uppercase')($scope.name)
+//    });
+//    2.$filter 注入到函数中
+//    $filter('uppercase')调用uppercase过滤器
+//    ($scope.name)传入数据
+//    返回值就是需要的结果 $scope.name = $filter('uppercase')($scope.name)
+
+
+//  3.过滤器的名字+Filter后缀，注入到函数中  例如 uppercaseFilter
+    app2.controller('myCtrl',function ($scope,uppercaseFilter) {
+        $scope.name = 'zfpx';
+        $scope.name = uppercaseFilter($scope.name)
+    });
+
+
+
+
+</script>
+</body>
+</html>

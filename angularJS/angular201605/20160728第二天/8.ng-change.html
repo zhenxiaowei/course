@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+<!--    <input type="text" ng-model="value" ng-change="change()" ng-copy="copy()" ng-paste="paste()" ng-cut="cut()">-->
+    <div ng-copy="copy()" ng-paste="paste()" ng-cut="cut()">11111</div>
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.change = function () {
+            console.log('我是change')
+        };
+        $scope.copy = function () {
+            console.log('我是copy')
+        };
+        $scope.paste = function () {
+            console.log('我是paste')
+        };
+        $scope.cut = function () {
+            console.log('我是cut')
+        };
+    });
+
+//  ng-change
+//  作用：监听ng-model对应的变量所存储的数据的变化，要用ng-change,一定要有ng-model
+//  ng-copy
+//  作用:当我使用复制命令的时候，触发ng-copy后面的方法
+//  可以用在任何标签上
+//   ng-paste
+//  作用：当我们使用粘贴命令的时候，触发ng-paste 后面的方法
+//  ng-cut
+//  作用：当我们使用剪切命令的时候，会触发ng-cut后面的方法
+//  页面中任何地方都可以触发这三个行为的
+
+
+</script>
+</body>
+</html>

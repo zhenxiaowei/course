@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    {{result}}
+</div>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.factory('zfpxFac', function () {
+        return {
+            '+': (a, b)=>a + b,
+        }
+    });
+    app.controller('myCtrl',function ($scope,zfpxFac) {
+//        zfpxFac : 是定义服务的时候，return后的对象
+        $scope.result = zfpxFac['+'](1,2)
+
+    });
+
+
+    //  2.  factory :把provider定义服务时，$get的返回值，直接作为函数的返回值，不在存在$get ,是项目中最常种的一个方法，不能使用配置函数
+</script>
+</body>
+</html>

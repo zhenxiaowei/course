@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+        $http({
+            url: 'http.json',//请求的路径
+//            method: 'GET',//请求的方式  大写
+//            params:{name:'zfpx'}//只用GET请求，？后面传递的参数
+            method: 'POST',
+            data:{name:'zfpx'}//只用于post请求，请求体的内容
+        }).success(function (data, status, headers, config) {
+//      data :请求回来的数据
+//      status :请求回来的状态
+//      headers:函数，可以执行输入想要的响应头的内容
+//      config : 所用的配置内容
+            console.log(data);
+            console.log(status);
+            console.log(headers('date'))
+        }).error(function (err) {
+            console.log(err)
+        })
+
+    });
+    // $http :请求后台数据的服务
+    //  服务,全局可用的对象
+    // 用法：传递进来对象
+    //  结果是一个httpPromise,返回值成功时调用success，失败时调用error
+    // 快捷方式
+    // $http.get()  $http.delete()
+    //    参数 ：1) url地址 ：字符串
+    //           2) config ：配置项
+    // $http.post()  $http.put()
+    //    参数 ：1)url地址 ：字符串
+    //           2) data : 请求体
+    //           3) config ：配置项
+    //  $http.jsonp()
+    //  参数：url 路径参数 回调函数必须等于 JSON_CALLBACK
+</script>
+</body>
+</html>

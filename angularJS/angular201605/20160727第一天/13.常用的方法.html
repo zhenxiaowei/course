@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>angular</title>
+
+</head>
+<body>
+<!--uppercase lowercase-->
+
+<script src="angular.js"></script>
+<script>
+  /**
+   uppercase lowercase
+   equals
+   extend
+   copy
+   toJson fromJson
+   forEach
+   bind
+   isArray isFunction isObject
+   */
+//1.
+  var str = angular.uppercase('zfpx');/*转换为大写*/
+  var str1 = angular.lowercase('ZFPX');//转换为小写
+//  console.log(str);
+//  console.log(str1);
+//  2. equals   相当于 ===
+  var flag=angular.equals(NaN,NaN);//返回结果为true
+  var flag1=angular.equals(/^\d+$/,/^\d+$/);//返回结果为true
+//  console.log(flag);
+//  console.log(flag1);
+
+//  3.extend 继承
+  /*var obj1={name:'zfpx'},obj2={age:8};
+  angular.extend(obj1,obj2);
+  console.log(obj1);*/
+//  4.copy 复制
+//  var obj1={name:'zfpx'},obj2={age:8};
+//  angular.copy(obj1,obj2);
+//  console.log(obj2);
+//  5.toJson(JSON.stringify)  fromJson(JSON.parse)
+//  var obj3={name:'zhangsan'};
+//  var obj4 = angular.toJson(obj3);
+//  console.log(obj4);
+//  var obj5 = angular.fromJson(obj4);
+//  console.log(obj5);
+//  6.forEach 遍历循环数组
+//  参数1）要遍历的数组，2）function,3)改变this指向
+//  var arr=['zhangsan','lisi','wangwu'];
+//  var arr1={name:'zfpx'};
+//  angular.forEach(arr,function (item,index) {
+//    console.log(this.name, item ,index)
+//  },arr1);
+//  7.bind  预处理this的指向
+//  参数1）this指向，参数2）要改this的方法fn，参数3）及之后的参数 都是给fn传递的参数
+  var obj6={name:'zfpx'};
+  function fn(age){
+    console.log(this.name+"已经"+age+"岁了");
+  }
+  var fn1 = angular.bind(obj6,fn,8);
+  fn1();
+// 8.isArray isFunction isObject 返回的都是boolean类型 true 或者false
+  var flag2 = angular.isObject(null);
+//  console.log(flag2)  false
+
+//  9 angular.element() 转换原生的DOM元素为jQuery对象 虽然内置了jQuery但是不能直接用
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

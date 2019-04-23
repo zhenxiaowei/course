@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--点击 index 跳转到 / 页面 ，点击 users 跳转到 /users-->
+<a href="#/">index</a>
+<!--# 防止页面跳转到根目录-->
+<a href="#/users">users</a>
+<a href="#/calc">calc</a>
+<div ng-view>
+
+</div>
+<!--页面中必须有 ng-view 这个指令 ，所有的页面都是渲染在ng-view存在的元素内部，单页面应用的路由-->
+
+<script src="angular.js"></script>
+<script src="factory.js"></script>
+<script src="angular-route.js"></script>
+<script>
+    //  1.先将angular-route.js文件引进来
+    //  2.找到该文件的模板名字，依赖到操作的模板中
+    var app = angular.module('myApp', ['ngRoute','myApp1']);
+    app.controller('indexCtrl',function ($scope,$location) {
+//        在indexCtrl中定义的属性，可以用在所在的template上
+        $scope.name='珠峰培训';
+        $scope.login = function () {
+            $location.path('users');
+        };
+    });
+    app.config(function ($routeProvider) {
+        $routeProvider.when('/',{
+            template:'<h1>{{name}}</h1><button ng-click="login()">登录</button>',
+//          模板中的数据通过定义的控制器获取
+            controller:'indexCtrl'
+        }).when('/users',{
+//            template:'{{title}}',
+            templateUrl:'users.html',
+            controller:function ($scope) {
+                $scope.title = '用户列表';
+                $scope.users = [{name: 'zhangsan', id: 1},{name: 'lisi', id: 2},{name: 'wangwu', id: 3}];
+            }
+        }).when('/user/:id',{
+            template:'当前用户的id是{{id}}',
+            controller:function ($scope,$routeParams) {
+//              $routeParams 获取到是冒号: 后面的内容
+                $scope.id=$routeParams.id
+            }
+        }).when('/calc',{
+            templateUrl:'factory.html',
+            controller:'myCtrl'
+        }).otherwise('/')
+    });
+
+// when(path,config)
+//   path :字符串，路径
+//  config : 配置对象
+//  otherwise : 除了以上配置的路径，所有的其他的都走这个路径
+//   otherwise('/') ,可以直接是一个字符串
+//    otherwise({
+//       redirectTo :'/'
+//    })
+
+
+// 自己配置一个路由跳转到计算器的页面
+//  页面需要修改（一个html文件 一个js文件）
+</script>
+</body>
+</html>

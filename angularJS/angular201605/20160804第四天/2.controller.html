@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<girl clever></girl>
+
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.directive('girl',function () {
+        return{
+            controller:function ($scope, $element, $attrs) {
+                $scope.kinds=[];
+                this.add=function (cur) {
+                    $scope.kinds.push(cur)
+                }
+            },
+            template:'<h1>荣娟</h1>{{kinds[0]}}',
+            link:function (scope, element, attrs) {
+                element.bind('click',function () {
+                    alert(scope.kinds)
+                })
+            }
+        }
+    });
+    app.directive('clever',function () {
+        return{
+            require:'?girl',
+            link:function (scope, element, attrs, girlCont) {
+//          girlCont 是什么？ 是girl指令中controller部分的一个实例，他有一个add的方法
+               girlCont.add('girl clever');
+            }
+        }
+    });
+//  1. require:'girl'  在同级查找自定义指令，如果找不到会报错；
+//    Controller 'girl1', required by directive 'clever', can't be found!
+//  2.  require:'？girl' 在同级查找自定义指令，如果找不到会赋值为null，不会报错；
+//  3.  require:'^girl'  在同级或者父级查找该自定义指令，如果找不到会报错；
+//  4. require :'^?gril' 在同级或者父级查找，找不到不会报错，会赋值为null；
+
+//  同级父级指的是作用域关系
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <img ng-src="{{src}}" >
+    <!--引入图片地址需要用{{ }} 包裹起来-->
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope,$timeout) {
+        $timeout(function () {
+            $scope.src = 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png';
+        },2000)
+    });
+//    ng-src :加载图片
+//    与src区别就是：只有我们的图片加载完成之后才能出现图片
+
+
+
+</script>
+</body>
+</html>

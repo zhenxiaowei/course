@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<!--
+AngularJS 应用组成如下：
+View(视图), 即 HTML。
+Model(模型), 当前视图中可用的数据。
+Controller(控制器), 即 JavaScript 函数，可以添加或修改属性。
+scope 是模型。
+scope 是一个 JavaScript 对象，带有属性和方法，这些属性和方法可以在视图和控制器中使用。
+-->
+
+<!--如果你修改了视图，模型和控制器也会相应更新：-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    <input type="text" ng-model="name"/>
+    <h1>{{greeting}}</h1>
+    <button ng-click="sayHello()">点击</button>
+</div>
+<script>
+    var app=angular.module("myApp",[]);
+    app.controller('myCtrl', function ($scope) {
+        $scope.name="甄晓伟1";
+        $scope.sayHello= function () {
+            $scope.greeting="hello"+$scope.name+"!";
+        }
+    });
+</script>
+</body>
+</html>

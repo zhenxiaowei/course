@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <a ng-href="{{href}}">跳转百度</a>
+    <!--引入链接地址需要用{{ }} 包裹起来-->
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope,$timeout) {
+        $timeout(function () {
+            $scope.href = 'http://www.baidu.com';
+        },2000)
+    });
+//    ng-href :超链接
+//    与href区别就是：只有我们的链接加载完成之后才能点击链接进行跳转
+
+
+
+</script>
+</body>
+</html>

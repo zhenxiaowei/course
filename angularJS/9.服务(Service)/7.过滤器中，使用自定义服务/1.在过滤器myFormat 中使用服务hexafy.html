@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp">
+    在过滤器中使用服务:
+
+    <h1>{{255 | myFormat}}</h1>
+
+</div>
+
+<script>
+    //当你创建了自定义服务，并连接到你的应用上后，你可以在控制器，指令，过滤器或其他服务中使用它。
+    var app = angular.module('myApp', []);
+    app.service('hexafy', function() {
+        this.myFunc = function (x) {
+            return x.toString(16);
+        }
+    });
+    //在过滤器 myFormat 中使用服务 hexafy:
+    app.filter('myFormat',['hexafy', function(hexafy) {
+        return function(x) {
+            return hexafy.myFunc(x);
+        };
+    }]);
+
+</script>
+
+</body>
+</html>

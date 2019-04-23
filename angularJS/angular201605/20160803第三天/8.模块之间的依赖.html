@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp2">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl">
+    {{name}}
+</div>
+
+<script src="angular.js"></script>
+<script src="8.模块之间的依赖2.js"></script>
+<!--1.把模块引入进来-->
+<script>
+    var app2 = angular.module('myApp2', ['myApp1']);
+//    2.将依赖的模块注入到模块定义中
+
+
+
+</script>
+</body>
+</html>

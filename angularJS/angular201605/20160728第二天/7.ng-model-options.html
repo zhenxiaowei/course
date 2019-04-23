@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <input type="text" ng-model="value" ng-model-options="{debounce:2000}">
+    <table class="table table-bordered">
+        <tr>
+            <th>序号</th>
+            <th>名称</th>
+            <th>价钱</th>
+            <th>数量</th>
+        </tr>
+        <tr ng-repeat="p in obj | filter:value">
+            <td>{{$index+1}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.count}}</td>
+        </tr>
+    </table>
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+       $scope.obj=[{name:'小米',price:'999',count:2},{name:'苹果',price:'3989',count:1},{name:'华为',price:'1988',count:4}]
+
+    });
+//  1. ng-model-options="{updateOn:'blur'}"
+//  和 ng-model 配合使用的
+//  作用：当光标离开的时候页面才会出现我们选择的结果
+//  每次输入数据的时候angularJS,是时刻监听这变化，只是没有改变页面效果，当光标离开的时候，再次触发，angular的检查机制，进行页面的刷新
+//    updateOn 性能没有而 debounce 好：
+//    因为每次输入内容，angular执行了和ng-model一样的行为每次输入都触发了检查机制，只是页面中没有跟着动态改变，只有当触发updateOn后面的行为的时候，页面才刷新；
+//    而debounce 并没有触发angular的检查机制，只有在输入的时间到达之后才触发了angular的检查机制；
+//   2. ng-model-options="{debounce:1000}"
+//   作用：延迟触发angularJS的检查机制，debounce的参数为时间，当到达这个时间的时候，angularJS根据我们输入的内容进行检查，刷新页面；
+//
+
+</script>
+</body>
+</html>

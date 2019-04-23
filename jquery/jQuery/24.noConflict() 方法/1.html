@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="../js/jquery-1.11.3.js">
+    </script>
+    <script>
+        /*
+        *
+        * noConflict() 方法会释放会 $ 标识符的控制，这样其他脚本就可以使用它了。
+         当然，您仍然可以通过全名替代简写的方式来使用 jQuery：
+        * */
+        $.noConflict();
+        jQuery(document).ready(function(){
+            jQuery("button").click(function(){
+                jQuery("p").text("jQuery 仍然在工作!");
+            });
+        });
+    </script>
+</head>
+
+<body>
+<p>这是一个段落。</p>
+<button>点我</button>
+</body>
+</html>

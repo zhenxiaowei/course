@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp2">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<!--E-->
+<zfpx-dr>8岁了</zfpx-dr>
+<!--C-->
+<div class="zfpx-dr"></div>
+<!--A-->
+<div zfpx-dr></div>
+<!--M-->
+<!-- directive:zfpx-dr -->
+<!--前后各一个空格-->
+
+
+<!--使用 - 改变驼峰命名-->
+
+<script src="angular.js"></script>
+<script>
+    var app2 = angular.module('myApp2', []);
+    app2.directive('zfpxDr',function () {
+//    参数1 ，自定义指令的名字 ；参数2，函数，返回一个对象（定义指令的属性）
+        return{
+            template:'<div>甄晓伟\
+            <span ng-transclude></span></div>',
+//         定义指令的模板
+//         如果模板是多行的，以\为结尾
+//            templateUrl:'templateUrl.html',
+//          如果用在注释中 templateUrl.html ，模板中只能有一个顶级标签(最外层只能有一个标签)
+//          引入一个模板
+            restrict:'ECMA',
+//          规定自定义指令用的位置
+//          默认值是EA
+//          E  element 元素标签 ，用于标签
+//          C  class   样式类名
+//          M  comment  可以用在注释
+//          A  attribute 用在属性上
+            replace:true,
+//          替换原有的DOM元素
+            transclude:true,
+//          包含页面中元素中的内容，和ng-transclude一起使用
+            scope:true,
+//          为true 会生成自己独立的作用域 ，为false会自动找上级作用域
+
+        }
+    });
+
+//    自定义指令 directive
+//    angular.module('myApp2', []) 的返回值 调用directive，实现自定义指令
+
+
+
+</script>
+</body>
+</html>

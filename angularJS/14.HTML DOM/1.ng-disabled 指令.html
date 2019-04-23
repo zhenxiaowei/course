@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<!--如果 mySwitch 为true, 按钮将不可用:   如果 mySwitch 为false, 按钮则可用: -->
+<div ng-app="" ng-init="mySwitch=true">
+    <p>
+        <!--ng-disabled 指令直接绑定应用程序数据到 HTML 的 disabled 属性。-->
+        <button ng-disabled="mySwitch">点我!</button>
+    </p>
+    <p>
+        <!--ng-model 指令绑定 "mySwitch" 到 HTML input checkbox 元素的内容（value）。-->
+        <input type="checkbox" ng-model="mySwitch"/>按钮
+    </p>
+    <p>
+        {{ mySwitch }}
+    </p>
+</div>
+
+</body>
+</html>

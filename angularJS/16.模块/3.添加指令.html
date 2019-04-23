@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" runoob-directive></div>
+
+<script>
+
+    var app = angular.module("myApp", []);
+/*此外，你可以使用模块来为你应用添加自己的指令：*/
+    //自定义指令创建
+    app.directive("runoobDirective", function() {
+        return {
+            template : "我在指令构造器中创建!"
+        };
+    });
+</script>
+
+</body>
+</html>

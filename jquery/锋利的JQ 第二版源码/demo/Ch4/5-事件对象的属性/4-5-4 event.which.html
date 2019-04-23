@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--   引入jQuery -->
+    <script src="../../scripts/jquery.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            //当鼠标指针移动到元素上方，并按下鼠标按键时，会发生 mousedown 事件。
+            //与 click 事件不同，mousedown 事件仅需要按键被按下，而不需要松开即可发生。
+//mousedown() 方法触发 mousedown 事件，或规定当发生 mousedown 事件时运行的函数。
+            $("a").mousedown(function (e) {
+                //which 属性指示按了哪个键或按钮。
+                alert(e.which)  // 1 = 鼠标左键 ; 2 = 鼠标中键; 3 = 鼠标右键
+                return false;//阻止链接跳转
+            })
+        })
+    </script>
+</head>
+<body>
+<a href='http://google.com'>click me .</a>
+</body>
+</html>
