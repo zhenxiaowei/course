@@ -126,14 +126,41 @@ import Form6 from '@/components/Form/Form6'//动态增减表单项
 import Form7 from '@/components/Form/Form7'//数字类型验证
 import Form8 from '@/components/Form/Form8'//表单内组件尺寸控制
 
+//Table 表格   用于展示多条结构类似的数据，可对数据进行排序、筛选、对比或其他自定义操作。
+import Table1 from '@/components/Table/Table1'//基础表格
+import Table2 from '@/components/Table/Table2'//带斑马纹表格
+import Table3 from '@/components/Table/Table3'//带边框表格
+import Table4 from '@/components/Table/Table4'//带状态表格
+import Table5 from '@/components/Table/Table5'//固定表头
+import Table6 from '@/components/Table/Table6'//固定列
+import Table7 from '@/components/Table/Table7'//固定列 固定表头
+import Table8 from '@/components/Table/Table8'//流体高度
+import Table9 from '@/components/Table/Table9'//多级表头
+import Table10 from '@/components/Table/Table10'//单选
+import Table11 from '@/components/Table/Table11'//多选
+import Table12 from '@/components/Table/Table12'//排序
+import Table13 from '@/components/Table/Table13'//筛选
+import Table14 from '@/components/Table/Table14'//自定义列模板
+import Table15 from '@/components/Table/Table15'//展开行
+import Table16 from '@/components/Table/Table16'//表尾合计行
+import Table17 from '@/components/Table/Table17'//合并行或列
+import Table18 from '@/components/Table/Table18'//自定义索引
+
+//Tag 标签 用于标记和选择
+import Tag from '@/components/Tag'
+
+//¶ Progress 进度条  用于展示操作进度，告知用户当前状态和预期。
+import Progress from '@/components/Progress'
+
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Select10',
-      component: Form8
+      name: 'Alert',
+      component: Progress
     }
   ]
 })
