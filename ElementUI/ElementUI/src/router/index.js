@@ -152,15 +152,20 @@ import Tag from '@/components/Tag'
 //¶ Progress 进度条  用于展示操作进度，告知用户当前状态和预期。
 import Progress from '@/components/Progress'
 
+//Tree 树形控件  用清晰的层级结构展示信息，可展开或折叠。
+import Tree1 from '@/components/Tree/Tree1'//基础的树形结构展示。
+import Tree2 from '@/components/Tree/Tree2'//可选择
+import Tree3 from '@/components/Tree/Tree3'//懒加载自定义叶子节点
+
+
 
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'Alert',
-      component: Progress
+      component: Tree3
     }
   ]
 })
