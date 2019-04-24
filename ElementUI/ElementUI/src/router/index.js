@@ -74,6 +74,57 @@ import Select8  from '@/components/Select/Select8'//可搜索
 import Select9  from '@/components/Select/Select9'//远程搜索
 import Select10  from '@/components/Select/Select10'//远程搜索
 
+//Cascader 级联选择器  当一个数据集合有清晰的层级结构时，可通过级联选择器逐级查看并选择。
+import Cascader1  from '@/components/Cascader/Cascader1'//基础用法
+import Cascader2  from '@/components/Cascader/Cascader2'//禁用选项
+import Cascader3  from '@/components/Cascader/Cascader3'//仅显示最后一级
+import Cascader4 from '@/components/Cascader/Cascader4'//默认值
+import Cascader5 from '@/components/Cascader/Cascader5'//选择即改变
+import Cascader6 from '@/components/Cascader/Cascader6'//动态加载次级选项
+import Cascader7 from '@/components/Cascader/Cascader7'//可搜索
+
+//Switch 开关   表示两种相互对立的状态间的切换，多用于触发「开/关」。
+import Switch from '@/components/Switch'
+
+//Slider 滑块  通过拖动滑块在一个固定区间内进行选择
+import Slider from '@/components/Slider'
+
+//TimePicker 时间选择器 用于选择或输入日期
+import TimePicker from '@/components/TimePicker'
+
+//DatePicker 日期选择器  用于选择或输入日期
+import DatePicker from '@/components/DatePicker'
+
+//DateTimePicker 日期时间选择器   在同一个选择器里选择日期和时间
+import DateTimePicker from '@/components/DateTimePicker'
+
+//Upload 上传   通过点击或者拖拽上传文件
+import Upload1 from '@/components/Upload/Upload1' //点击上传
+import Upload2 from '@/components/Upload/Upload2' //用户头像上传
+import Upload3 from '@/components/Upload/Upload3' //照片墙
+import Upload4 from '@/components/Upload/Upload4' //图片列表缩略图
+import Upload5 from '@/components/Upload/Upload5' //上传文件列表控制
+import Upload6 from '@/components/Upload/Upload6' //拖拽上传
+import Upload7 from '@/components/Upload/Upload7' //手动上传
+
+//Rate 评分  评分组件
+import Rate from '@/components/Rate' //评分组件
+
+//ColorPicker 颜色选择器
+import ColorPicker from '@/components/ColorPicker'
+
+//Transfer 穿梭框
+import Transfer from '@/components/Transfer'
+
+//Form 表单  由输入框、选择器、单选框、多选框等控件组成，用以收集、校验、提交数据
+import Form1 from '@/components/Form/Form1'//典型表单
+import Form2 from '@/components/Form/Form2'//行内表单
+import Form3 from '@/components/Form/Form3'//对齐方式
+import Form4 from '@/components/Form/Form4'//表单验证
+import Form5 from '@/components/Form/Form5'//自定义校验规则
+import Form6 from '@/components/Form/Form6'//动态增减表单项
+import Form7 from '@/components/Form/Form7'//数字类型验证
+import Form8 from '@/components/Form/Form8'//表单内组件尺寸控制
 
 Vue.use(Router)
 
@@ -81,8 +132,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Select1',
-      component: Select10
+      name: 'Select10',
+      component: Form8
     }
   ]
 })
