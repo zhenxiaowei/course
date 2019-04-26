@@ -5,6 +5,7 @@ import Less from '@/components/Less'//使用Less
 import Axios from '@/components/Axios'//使用Axios
 import Echarts from '@/components/Echarts'//使用Echarts
 import Jquery from '@/components/Jquery'//使用Jquery
+import Bootstrap from '@/components/Bootstrap'//使用Bootstrap
 Vue.use(Router);
 
 export default new Router({
@@ -12,7 +13,7 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: Jquery
+      component: Bootstrap
     }
   ]
 })

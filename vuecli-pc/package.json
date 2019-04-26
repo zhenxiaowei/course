@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
     "echarts": "^4.2.1",
     "element-ui": "^2.8.2",
     "jquery": "^3.4.0",
     "less": "^3.9.0",
+    "popper.js": "^1.15.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

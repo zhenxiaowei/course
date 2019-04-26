@@ -14,6 +14,9 @@ Vue.prototype.$echarts = echarts//全局使用echarts图表
 
 import $ from 'jquery'//使用jquery
 
+import 'bootstrap'//使用bootstrap   没有成功
+
+
 import App from './App'
 import router from './router'
 Vue.use(ElementUI);
